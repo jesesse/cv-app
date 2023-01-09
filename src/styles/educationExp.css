@@ -3,7 +3,14 @@
     flex-flow: column;
     gap: 1rem;
     padding: 2rem;
+    border: 1px solid black;
 
+}
+
+.ed-exps-display{
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
 }
 
 input{

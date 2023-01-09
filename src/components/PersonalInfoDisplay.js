@@ -7,7 +7,7 @@ class PersonalInfoDisplay extends React.Component{
 
     render() {
         return (
-            <div className="personal-info-container">
+            <div className="personal-info-display">
                 <div type="text" className="first-name-input" placeholder="First Name">First Name: {this.props.personalInfo.firstName}</div>
                 <div type="text" className="first-name-input" placeholder="Last Name">Last Name: {this.props.personalInfo.lastName}</div>
                 <div type="email" placeholder="example@email.com">Email: {this.props.personalInfo.email}</div>
