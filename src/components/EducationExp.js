@@ -12,7 +12,7 @@ class EducationExp extends React.Component {
                 <h1>EDUCATIONAL EXPERIENCE</h1>
                 <input placeholder="School name"></input>
                 <input placeholder="Degree"></input>
-                <div class="dates">
+                <div className="dates">
                     <label htmlFor="school-start-date">Starting Date:
                         <input type="date" id="school-start-date"></input>
                     </label>

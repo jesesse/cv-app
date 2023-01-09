@@ -13,7 +13,7 @@ class PracticalExp extends React.Component {
                 <input placeholder="Company Name"></input>
                 <input placeholder="Position Title"></input>
                 <input placeholder="Main Tasks"></input>
-                <div class="dates">
+                <div className="dates">
                     <label htmlFor="job-start-date">Starting Date:
                         <input type="date" id="job-start-date"></input>
                     </label>
