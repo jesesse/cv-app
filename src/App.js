@@ -1,5 +1,8 @@
 import React from 'react';
-import './App.css';
+import './styles/app.css'
+import PersonalInfo from './components/PersonalInfo';
+import EducationExp from './components/EducationExp';
+import PracticalExp from './components/PracticalExp';
 
 class App extends React.Component{
   constructor(props){
@@ -9,7 +12,9 @@ class App extends React.Component{
   render(){
     return(
       <div className='container'>
-
+        <PersonalInfo></PersonalInfo>
+        <EducationExp></EducationExp>
+        <PracticalExp></PracticalExp>
       </div>
     )
   }
