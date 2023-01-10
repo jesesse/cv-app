@@ -8,10 +8,10 @@ class EducationExpForm extends React.Component {
     render() {
         
         console.log(this.props.display)
-        let formDisplay = (this.props.display) ? "flex" : "none";
+        if (!this.props.display) return null;
 
         return (
-            <form style={{display: formDisplay}} className="education-exp-form">
+            <form className="education-exp-form">
                 <input value={this.props.edExp.schoolName} className="school-name" onChange={(e) => this.props.onChange(e)} placeholder="School name"></input>
                 <input value={this.props.edExp.degree} className="degree" onChange={(e) => this.props.onChange(e)} placeholder="Degree"></input>
                 <div className="dates">

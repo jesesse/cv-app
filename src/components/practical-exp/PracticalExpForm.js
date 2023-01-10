@@ -6,11 +6,9 @@ class PracticalExpForm extends React.Component{
     }
 
     render(){
-
-        let displayForm = (this.props.display) ? "flex" : "none";
-
+        if (!this.props.display) return null;
         return(
-            <form style={{display: displayForm}} className="practical-exp">
+            <form className="practical-exp">
                 <input className="company-name" value={this.props.name} onChange={(e) => this.props.onChange(e)} placeholder="Company Name"></input>
                 <input className="job-title" value={this.props.position} onChange={(e) => this.props.onChange(e)} placeholder="Position Title"></input>
                 <input className="tasks" value={this.props.tasks} onChange={(e) => this.props.onChange(e)} placeholder="Main Tasks"></input>
