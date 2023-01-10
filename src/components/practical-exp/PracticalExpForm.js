@@ -1,13 +1,14 @@
 import React from "react";
 
-class PracticalExpForm extends React.Component{
-    constructor(props){
+class PracticalExpForm extends React.Component {
+    constructor(props) {
         super(props)
     }
 
-    render(){
-        if (!this.props.display) return null;
-        return(
+    render() {
+        
+        return (
+            (this.props.display) &&
             <form className="practical-exp">
                 <input className="company-name" value={this.props.name} onChange={(e) => this.props.onChange(e)} placeholder="Company Name"></input>
                 <input className="job-title" value={this.props.position} onChange={(e) => this.props.onChange(e)} placeholder="Position Title"></input>
