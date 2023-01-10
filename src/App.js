@@ -1,37 +1,20 @@
 import React from 'react';
 import './styles/app.css'
-import PersonalInfo from './components/PersonalInfo';
-import EducationExp from './components/EducationExp';
-import PracticalExp from './components/PracticalExp';
+import PersonalInfo from './components/personal-info/PersonalInfo';
+import EducationExp from './components/education/EducationExp';
+import PracticalExp from './components/practical-exp/PracticalExp';
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
-
-    this.state = {
-      practicalExps: [
-        {
-          editMode: true,
-          companyName: "",
-          jobTitle: "",
-          startDate: "",
-          endDate: ""
-        }
-      ]
-    }
-
-
-    
+    super(props)   
   }
-
-
 
   render() {
     return (
       <div className='container'>
         <PersonalInfo></PersonalInfo>
         <EducationExp></EducationExp>
-        <PracticalExp practicalExps={this.state.practicalExps}></PracticalExp>
+        <PracticalExp></PracticalExp>
       </div>
     )
   }

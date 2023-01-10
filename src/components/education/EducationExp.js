@@ -1,14 +1,14 @@
 import React from "react";
 import EducationExpForm from "./EducationExpForm";
 import EducationalExpsDisplay from "./EducationExpsDisplay";
-import '../styles/educationExp.css';
+import '../../styles/educationExp.css';
 
 class EducationExp extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            editMode: true,
+            formDisplay: false,
             edExps: [],
             edExp: {
                 schoolName: "",
@@ -20,12 +20,22 @@ class EducationExp extends React.Component {
         }
 
         this.submitEdExp = this.submitEdExp.bind(this)
-        this.handleChange = this.handleChange.bind(this)
+        this.onChange = this.onChange.bind(this)
         this.deleteExp = this.deleteExp.bind(this)
-        
+     
     }
 
-    handleChange(e) {
+    componentWillMount() {
+        this.displayForm = this.displayForm.bind(this)
+    }
+    displayForm(){
+        // e.target.style = `display: ${(!this.state.btnDisplay)}`
+        this.setState({
+            formDisplay: (!this.state.formDisplay)
+        })
+    }
+
+    onChange(e) {
         if (e.target.className === "school-name") this.setState({
             edExp: {
                 schoolName: e.target.value,
@@ -62,8 +72,6 @@ class EducationExp extends React.Component {
                 key: this.state.edExp.key
             }
         })
-
-
     }
 
     submitEdExp(e) {
@@ -76,21 +84,15 @@ class EducationExp extends React.Component {
                 startDate: "",
                 endDate: "",
                 key: new Date().getTime()
-            }
+            },
+            formDisplay: (!this.state.formDisplay)
         })
     }
 
     deleteExp(key) {
         let newExps = this.state.edExps.filter(exp => exp.key != key)
         this.setState({
-            edExps: newExps,
-            edExp: {
-                schoolName: "",
-                degree: "",
-                startDate: "",
-                endDate: "",
-                key: new Date().getTime()
-            }
+            edExps: newExps
         })
     }
 
@@ -100,7 +102,8 @@ class EducationExp extends React.Component {
             <div className="ecudational-exp-container">
                 <h1>EDUCATIONAL EXPERIENCE</h1>
                 <EducationalExpsDisplay edExps={this.state.edExps} deleteExp={this.deleteExp}></EducationalExpsDisplay>
-                <EducationExpForm edExp={this.state.edExp} submitEdExp={this.submitEdExp} handleChange={this.handleChange}></EducationExpForm>
+                <EducationExpForm display={this.state.formDisplay} edExp={this.state.edExp} submitEdExp={this.submitEdExp} onChange={this.onChange}></EducationExpForm>
+                <button onClick={this.displayForm}>+ Add Edu</button>
             </div>
         )
     }

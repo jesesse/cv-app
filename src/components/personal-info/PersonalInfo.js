@@ -1,7 +1,7 @@
 import React from "react";
 import PersonalInfoForm from "./PersonalInfoForm";
 import PersonalInfoDisplay from "./PersonalInfoDisplay";
-import '../styles/personalInfo.css';
+import '../../styles/personalInfo.css';
 
 
 class PersonalInfo extends React.Component {
@@ -17,7 +17,7 @@ class PersonalInfo extends React.Component {
             }
         }
         this.submitChange = this.submitChange.bind(this)
-        this.handleChange = this.handleChange.bind(this)
+        this.onChange = this.onChange.bind(this)
         this.setEditMode = this.setEditMode.bind(this)
     }
 
@@ -45,7 +45,7 @@ class PersonalInfo extends React.Component {
         })
     }
 
-    handleChange(e) {
+    onChange(e) {
 
         if (e.target.className === "first-name-input") this.setState({
             personalInfo: {
@@ -80,7 +80,7 @@ class PersonalInfo extends React.Component {
             personalInfoView = (
                 <PersonalInfoForm personalInfo={this.state.personalInfo}
                     onSubmit={this.submitChange}
-                    onChange={this.handleChange}>
+                    onChange={this.onChange}>
                 </PersonalInfoForm>
             )
         }
