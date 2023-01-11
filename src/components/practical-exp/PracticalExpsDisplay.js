@@ -11,7 +11,7 @@ class PracticalExpDisplay extends React.Component {
                 {this.props.exps.map(exp => {
                     return (
                         <div className="practical-exp" key={exp.key}>
-                            <div>Company Name: {exp.name}</div>
+                            <div>Company Name: {exp.companyName}</div>
                             <div>Job Title: {exp.jobTitle}</div>
                             <div>Main Tasks: {exp.tasks}</div>
                             <div className="dates">

@@ -35,56 +35,22 @@ class PracticalExp extends React.Component {
         })
     }
 
-    onChange(e){
-        if (e.target.className === "company-name") this.setState({
-            practicalExp: {
-                companyName: e.target.value,
-                jobTitle: this.state.practicalExp.jobTitle,
-                tasks: this.state.practicalExp.tasks,
-                startDate: this.state.practicalExp.startDate,
-                endDate: this.state.practicalExp.endDate,
-                key: this.state.practicalExp.key
-              }
-        })
-        if (e.target.className === "job-title") this.setState({
-            practicalExp: {
-                companyName: this.state.practicalExp.companyName,
-                jobTitle: e.target.value,
-                tasks: this.state.practicalExp.tasks,
-                startDate: this.state.practicalExp.startDate,
-                endDate: this.state.practicalExp.endDate,
-                key: this.state.practicalExp.key
-              }
-        })
-        if (e.target.className === "tasks") this.setState({
-            practicalExp: {
-                companyName: this.state.practicalExp.companyName,
-                jobTitle: this.state.practicalExp.jobTitle,
-                tasks: e.target.value,
-                startDate: this.state.practicalExp.startDate,
-                endDate: this.state.practicalExp.endDate,
-                key: this.state.practicalExp.key
-              }
-        })
-        if (e.target.className === "start-date") this.setState({
-            practicalExp: {
-                companyName: this.state.practicalExp.companyName,
-                jobTitle: this.state.practicalExp.jobTitle,
-                tasks: this.state.practicalExp.tasks,
-                startDate: e.target.value,
-                endDate: this.state.practicalExp.endDate,
-                key: this.state.practicalExp.key
-              }
-        })
-        if (e.target.className === "end-date") this.setState({
-            practicalExp: {
-                companyName: this.state.practicalExp.companyName,
-                jobTitle: this.state.practicalExp.jobTitle,
-                tasks: this.state.practicalExp.tasks,
-                startDate: this.state.practicalExp.startDate,
-                endDate: e.target.value,
-                key: this.state.practicalExp.key
-              }
+    onChange(e) {
+        let target;
+        switch (e.target.className) {
+            case "company-name": target = "companyName"; break;
+            case "job-title": target = "jobTitle"; break;
+            case "tasks": target = "tasks"; break;
+            case "start-date": target = "startDate"; break;
+            case "end-date": target = "endDate"; break;
+            default: alert("error");
+        }
+
+        let newExp = this.state.practicalExp;
+        newExp[target] = e.target.value;
+
+        this.setState({
+            practicalExp: newExp    
         })
     }
 

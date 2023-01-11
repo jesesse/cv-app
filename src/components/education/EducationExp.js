@@ -36,41 +36,20 @@ class EducationExp extends React.Component {
     }
 
     onChange(e) {
-        if (e.target.className === "school-name") this.setState({
-            edExp: {
-                schoolName: e.target.value,
-                degree: this.state.edExp.degree,
-                startDate: this.state.edExp.startDate,
-                endDate: this.state.edExp.endDate,
-                key: this.state.edExp.key
-            }
-        })
-        if (e.target.className === "degree") this.setState({
-            edExp: {
-                schoolName: this.state.edExp.schoolName,
-                degree: e.target.value,
-                startDate: this.state.edExp.startDate,
-                endDate: this.state.edExp.endDate,
-                key: this.state.edExp.key
-            }
-        })
-        if (e.target.className === "start-date") this.setState({
-            edExp: {
-                schoolName: this.state.edExp.schoolName,
-                degree: this.state.edExp.degree,
-                startDate: e.target.value,
-                endDate: this.state.edExp.endDate,
-                key: this.state.edExp.key
-            }
-        })
-        if (e.target.className === "end-date") this.setState({
-            edExp: {
-                schoolName: this.state.edExp.schoolName,
-                degree: this.state.edExp.degree,
-                startDate: this.state.edExp.startDate,
-                endDate: e.target.value,
-                key: this.state.edExp.key
-            }
+        let target;
+        switch (e.target.className) {
+            case "school-name": target = "schoolName"; break;
+            case "degree": target = "degree"; break;
+            case "start-date": target = "startDate"; break;
+            case "end-date": target = "endDate"; break;
+            default: alert("error");
+        }
+
+        let edExp = this.state.edExp;
+        edExp[target] = e.target.value;
+
+        this.setState({
+            practicalExp: edExp
         })
     }
 
