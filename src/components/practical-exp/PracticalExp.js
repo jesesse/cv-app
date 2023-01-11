@@ -17,19 +17,19 @@ class PracticalExp extends React.Component {
                 startDate: "",
                 endDate: "",
                 key: new Date().getTime()
-              }
-          } 
+            }
+        }
 
-          this.submitExp = this.submitExp.bind(this)
-          this.deleteExp = this.deleteExp.bind(this)
-          this.onChange = this.onChange.bind(this)
+        this.submitExp = this.submitExp.bind(this)
+        this.deleteExp = this.deleteExp.bind(this)
+        this.onChange = this.onChange.bind(this)
     }
 
-    componentWillMount(){
+    componentWillMount() {
         this.displayForm = this.displayForm.bind(this)
     }
 
-    displayForm(){
+    displayForm() {
         this.setState({
             formDisplay: (!this.state.formDisplay)
         })
@@ -50,11 +50,11 @@ class PracticalExp extends React.Component {
         newExp[target] = e.target.value;
 
         this.setState({
-            practicalExp: newExp    
+            practicalExp: newExp
         })
     }
 
-    submitExp(e){
+    submitExp(e) {
         e.preventDefault()
         this.setState({
             formDisplay: false,
@@ -66,11 +66,11 @@ class PracticalExp extends React.Component {
                 startDate: "",
                 endDate: "",
                 key: new Date().getTime()
-              }
+            }
         })
     }
 
-    deleteExp(key){
+    deleteExp(key) {
         let newExps = this.state.practicalExps.filter(item => item.key != key)
         this.setState({
             practicalExps: newExps
@@ -81,8 +81,15 @@ class PracticalExp extends React.Component {
         return (
             <div className="practical-exp-container">
                 <h1>PRACTICAL EXPERIENCES</h1>
-                <PracticalExpsDisplay exps={this.state.practicalExps} deleteExp={this.deleteExp}></PracticalExpsDisplay>
-                <PracticalExpForm onChange={this.onChange} submitExp={this.submitExp} display={this.state.formDisplay}></PracticalExpForm>
+                <PracticalExpsDisplay
+                    exps={this.state.practicalExps}
+                    deleteExp={this.deleteExp}>
+                </PracticalExpsDisplay>
+                <PracticalExpForm
+                    onChange={this.onChange}
+                    submitExp={this.submitExp}
+                    display={this.state.formDisplay}>
+                </PracticalExpForm>
                 <button onClick={this.displayForm}>+ Add</button>
             </div>
         )

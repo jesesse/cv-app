@@ -22,13 +22,13 @@ class EducationExp extends React.Component {
         this.submitEdExp = this.submitEdExp.bind(this)
         this.onChange = this.onChange.bind(this)
         this.deleteExp = this.deleteExp.bind(this)
-     
+
     }
 
     componentWillMount() {
         this.displayForm = this.displayForm.bind(this)
     }
-    displayForm(){
+    displayForm() {
         // e.target.style = `display: ${(!this.state.btnDisplay)}`
         this.setState({
             formDisplay: (!this.state.formDisplay)
@@ -80,8 +80,16 @@ class EducationExp extends React.Component {
         return (
             <div className="ecudational-exp-container">
                 <h1>EDUCATIONAL EXPERIENCE</h1>
-                <EducationalExpsDisplay edExps={this.state.edExps} deleteExp={this.deleteExp}></EducationalExpsDisplay>
-                <EducationExpForm display={this.state.formDisplay} edExp={this.state.edExp} submitEdExp={this.submitEdExp} onChange={this.onChange}></EducationExpForm>
+                <EducationalExpsDisplay
+                    edExps={this.state.edExps}
+                    deleteExp={this.deleteExp}>
+                </EducationalExpsDisplay>
+                <EducationExpForm
+                    display={this.state.formDisplay}
+                    edExp={this.state.edExp}
+                    submitEdExp={this.submitEdExp}
+                    onChange={this.onChange}>
+                </EducationExpForm>
                 <button onClick={this.displayForm}>+ Add Edu</button>
             </div>
         )

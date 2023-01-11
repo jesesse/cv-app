@@ -78,7 +78,8 @@ class PersonalInfo extends React.Component {
         let personalInfoView;
         if (this.state.personalInfo.editMode) {
             personalInfoView = (
-                <PersonalInfoForm personalInfo={this.state.personalInfo}
+                <PersonalInfoForm
+                    personalInfo={this.state.personalInfo}
                     onSubmit={this.submitChange}
                     onChange={this.onChange}>
                 </PersonalInfoForm>

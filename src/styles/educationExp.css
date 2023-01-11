@@ -1,16 +1,26 @@
-.education-exp{
+.ecudational-exp-container{
     display: flex;
     flex-flow: column;
     gap: 1rem;
     padding: 2rem;
-    border: 1px solid black;
 
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
+
+.education-exp-form {
+    border: 1px solid black;
+    padding: 50px;
 }
 
 .ed-exps-display{
     display: flex;
     flex-flow: column;
     gap: 1rem;
+}
+
+.education-exp{
+    border: 1px solid black;
 }
 
 
